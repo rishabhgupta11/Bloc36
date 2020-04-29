@@ -1,0 +1,669 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Didact Gothic';
+    font-size: 12px;    
+    letter-spacing: .5px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.bg-light{
+    background-color: #ffffff !important;
+}
+
+#banner-image{
+    margin-top: 60px;
+    padding-top: 75px;
+    padding-bottom: 50px;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    color: #f8f8f8;
+    background: url(../images/background1.jpg) no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#banner-content{
+    position: relative;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    margin-top: 12%;
+    margin-bottom: 12%;
+    max-width: 660px;
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}
+
+#banner-content > h1{
+    font-family: 'Didact Gothic';
+    font-size: 50px;
+    letter-spacing: 10px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+#banner-signup{
+    position: relative;
+    height: 100%;
+    background-color: #f1ebe7;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.create-acc{
+    color: #000000;
+    font-size:20px;
+    font-weight:900;
+    font-family:"Didact Gothic";
+    letter-spacing:3px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+li{
+    font-family: 'Didact Gothic';
+    margin-top: 10px;
+}
+
+.footer-heading{
+    margin-top: 30px;
+    font-family: 'Didact Gothic';
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.footer-text{
+    font-family: 'Didact-Gothic';
+    color: #ffffff;
+    text-decoration:none !important;
+}
+
+.footer-text > div > ul > li > a{
+    color: #ffffff;
+    text-decoration:none !important;
+}
+
+.footer-text > div > ul > li > a:hover 
+{
+    color: #ffffff;
+    text-decoration:underline; 
+    cursor:pointer;  
+}
+
+ul{
+    font-family: 'Didact-Gothic';
+    padding: 0px;
+    list-style-type: none;
+    margin: 0px;
+}
+
+#header{
+    top: 0;
+    z-index: 1;
+    position: fixed;
+    padding: 0px;
+}
+
+.cart{
+    font-family: "Didact Gothic";
+    color: #000000;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.cart a:hover{
+    font-family: "Didact Gothic";
+    color: #000000;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#footer{
+    position: relative;
+    bottom:0;
+}
+
+footer{
+    padding: 10px 0;
+    background-color: #212a2f;
+    color:#ffffff;
+    bottom: 0;
+    width: 100%;
+}
+
+nav ul li a{
+    font-family: "Didact Gothic";
+    color: #000000;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+nav div a{
+    font-family: "Didact Gothic";
+    color: #000000;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+nav div a:hover{
+    font-family: "Didact Gothic";
+    color: #5f5f5f;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+
+
+nav ul li a:hover{
+    font-family: "Didact Gothic";
+    color: #000000;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: 3.0rem;
+}
+
+.men, .women{
+    font-size:13px;
+    font-family: 'Didact Gothic';
+    letter-spacing:1px;
+}
+
+.dropdown-item{
+    font-size:12px;
+    font-family: 'Didact Gothic';
+    letter-spacing:1px;
+    font-weight: bold;
+}
+
+.navbar-brand{
+    justify-content: center;
+    margin-right:0px;
+}
+.mid-div{
+    margin-right:15px;
+}
+
+.navbar-light .navbar-toggler-icon{
+    background-image:url(../images/hamburger.png);
+}
+.navbar-light .navbar-toggler{
+    border-color: rgba(0,0,0,0);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0, 0, 0);
+}
+
+.nav-item{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#Signup{
+    font-family: 'Didact Gothic';
+    color: #000000;
+    position:relative;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    margin-top: 60px;
+}
+
+
+label{
+    margin-bottom: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+}
+
+input{
+    border: none;
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #000000;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 3px;
+  padding: 20px;
+  width: 98%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.form-password{
+    margin-bottom: 3px;
+}
+
+.forgot-password{
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.forgot-password > a{
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family:'Didact Gothic';
+    cursor: pointer;
+    color:#000000;
+}
+.forgot-password > a:hover{
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family:'Didact Gothic';
+    cursor: pointer;
+    color:#343a40;
+}
+
+.or-login-with{
+    display: flex;
+    justify-content:space-around;
+}
+
+.prod-women-image{
+    position: relative;
+    color: #f8f8f8;
+    max-width:100%;
+    height: auto;
+    background: url(../images/products-women-banner.jpg) no-repeat center center;
+}
+
+.prod-women-banner{
+    padding: 0px 50px 0px 50px;
+    background-color: #212a2f;
+    text-align: center;
+    color: #f8f8f8;
+    width: 100%;
+}
+@media only screen and (max-width: 768px){
+    .prod-women-image{
+        width: 200px !important;
+    }
+}
+
+
+@media only screen and (min-width: 320px) {
+    .prod-women-image-2{
+        position: relative;
+        color: #f8f8f8;
+        width:320px;
+        height: auto;
+        background: url(../images/products-women-banner.jpg) no-repeat center center;
+    }
+}
+@media only screen and (min-width: 375px) {
+    .prod-women-image-2{
+        position: relative;
+        color: #f8f8f8;
+        width:375px;
+        height: auto;
+        background: url(../images/products-women-banner.jpg) no-repeat center center;
+    }
+}
+@media only screen and (min-width: 425px) {
+    .prod-women-image-2{
+        position: relative;
+        color: #f8f8f8;
+        width:425px;
+        height: auto;
+        background: url(../images/products-women-banner.jpg) no-repeat center center;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .prod-women-image-2{
+        position: relative;
+        color: #f8f8f8;
+        width:768px;
+        height: auto;
+        background: url(../images/products-women-banner.jpg) no-repeat center center;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .prod-women-image-2{
+        position: relative;
+        color: #f8f8f8;
+        width:635px;
+        height: auto;
+        background: url(../images/products-women-banner.jpg) no-repeat center center;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .product-name{
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .product-name{
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .product-name{
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+}
+
+.filter{
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+    border-color: #5f5f5f;
+}
+
+.filter li{
+    display: inline-block;
+}
+
+.filter li a{
+    font-size: 12px;
+    font-family: 'Didact Gothic';
+    letter-spacing: 1px;
+    color: #000000;
+    text-decoration: none !important;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 20px 10px 20px 10px;
+}
+
+.see-all{
+    padding-top:5px;
+    padding-bottom:5px;
+    color: #212a2f;
+    font-size:16px;
+    font-weight:700; 
+    cursor:pointer;
+}
+
+th{
+    font-size:12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#success{
+     position:relative;
+    padding-top: 5%;
+    padding-bottom: 16%;
+    margin-top: 6%;
+    margin-bottom: 16%;
+    text-align: center;
+}
+.remove_item_link{
+    font-size: 12px;
+    font-family: 'Didact Gothic';
+    letter-spacing: 1px;
+    color: #000000;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-page{
+    margin:60px 0px 0px 0px;
+    position: relative;
+    height: 200%;
+    background-color: #f1ebe7;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cart-content a{
+    padding-bottom: 7px;
+    border-bottom: 2px solid;
+    color: #212a2f;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-decoration: none !important;
+    font-family: 'Didact Gothic';
+}
+
+.product_page{
+    margin-top:60px;
+    background-color: #f5f5f5;
+}
+
+
+.button10 {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Didact Gothic';
+}
+.button105 {
+    background-color: #212a2f;
+    color: #ffffff;
+    border: 2px solid #212a2f;
+}
+
+.button105:hover {
+    background-color: #f5f5f5;
+    color: #212a2f;
+    border: 2px solid #212a2f;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media only screen and (min-width: 780px){
+    .product-size-form-container:hover{
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        -webkit-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+    }
+
+    .product-product-image{
+        -webkit-box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.75);
+    }
+
+    .product-size-form{
+        display: none;
+    }
+    
+    .product-size-form-container:hover > .caption > .product-size-form{
+        display: inline;
+        z-index: -1;
+    }
+
+    .size-list-span {
+      color:#212a2f;
+      padding:5px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:all .2s ease;
+      font-size:14px;
+      justify-content: space-around;
+    }
+
+    .size-list-input {
+      display:none;  
+    }
+
+    .size-list-input:checked + .size-list-span {
+      background:#212a2f;
+      color:#fff;
+    }
+    
+    .quick-add{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px){
+    .product-size-form{
+        display: none;
+    }
+    
+    .quick-add{
+        white-space: nowrap;
+    }
+    
+    .size-list-span {
+      color:#212a2f;
+      padding:5px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:all .2s ease;
+      font-size:14px;
+      justify-content: space-around;
+    }
+
+    .size-list-input {
+      display:none;  
+    }
+
+    .size-list-input:checked + .size-list-span {
+      background:#212a2f;
+      color:#fff;
+    }
+    
+    .sizes{
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    
+    .product-size-form-container{
+        -webkit-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 23px -9px rgba(0,0,0,0.75);
+        padding-top: 5px;
+        padding-bottom: 15px;
+    }
+}
+
+.quick-add{
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-decoration: none !important;
+    color: #212a2f;
+    padding-top: 5px;
+    border-top: 1px solid #212a2f;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.product-size-form-quick-add{
+    padding-top:10px;
+    text-align:center;
+    padding-bottom:15px;
+}
+
+.title-heading:hover{
+    color: #212a2f;
+    text-decoration: underline;
+}
+
+.header-shop-menu{
+    float:left;
+    border:0;
+    border-bottom: 1px solid #212a2f;
+    margin:0;
+    margin-left:7px;
+    padding:0;
+    padding-bottom:20px;
+    overflow:hidden;
+}
+.shop-header{
+    white-space:nowrap;
+    text-align: center;
+    background: #f1ebe7;
+    padding:30px;
+    font-weight:600;
+}
+.subheader-shop-menu{
+    border-bottom: 1px solid #flebe7;
+    margin:0;
+    margin-left:7px;
+    padding-bottom:10px;
+    white-space:nowrap;
+    font-weight:600;
+    text-align:center;
+}
+@media only screen and (min-width: 780px){
+    .header-shop-menu{
+        width:1000%;
+    }    
+}
+
+.cat-shop-menu{
+    padding: 10px;
+}
+.cat-shop-menu:hover{
+    background-color: #f1ebe7;
+}
+
+hr{
+    margin:0px;
+}
