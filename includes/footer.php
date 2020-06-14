@@ -25,7 +25,7 @@
             <div class="col-md">
                     <p class="footer-heading">LET US HELP YOU</p>
                     <ul>
-                        <li><a href="#">Your Account</a></li>
+                        <li><a href="../home/my_account.php">Your Account</a></li>
                         <li><a href="#">Size Guide</a></li>
                         <li><a href="#">Shipping & Returns</a></li>
                         <li><a href="#">Refunds & Cancellations</a></li>

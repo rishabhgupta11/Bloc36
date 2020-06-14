@@ -58,6 +58,9 @@ if(isset($_GET["code"]))
             $_SESSION['total'] = 0;
             $_SESSION['rating'] = 0;
             header('location: ../home/index.php');
+            $msg = "Greetings ".$name."\n\n Welcome to Bloc36.";
+            $msg = wordwrap($msg,50);
+            mail($emailid,"Welcome to Bloc36",$msg);
         }
         else
         {

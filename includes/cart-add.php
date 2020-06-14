@@ -22,4 +22,3 @@ if (isset($_REQUEST['add_cart'])) {
     $_SESSION['total']++;
     header('location: ../home/cart.php');
 }
-?>

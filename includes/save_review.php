@@ -13,7 +13,11 @@ if(isset($_REQUEST['id'])){
         $query = "INSERT INTO user_ratings (Email, ProductID, rating, title, comment) VALUES('$email', '$item_id', '$rating', '$title', '$comment')";
         mysqli_query($con, $query);
         
-        header('location: ../home/product.php?id='.$item_id);
+        $query2 = "SELECT styleCode, prod_color FROM products1 WHERE ProductID='$item_id' LIMIT 1";
+        $result = mysqli_query($con, $query2);
+        $row = mysqli_fetch_array($result);
+        
+        header('location: ../home/product.php?styleCode='.$row['styleCode'].'&color='.$row['prod_color']);
     }
 }
 ?>

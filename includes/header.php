@@ -19,13 +19,13 @@
                             <h6 class="subheader-shop-menu">Top-Wear</h6> 
                             <hr>
                             <div class="container cat-shop-menu">
-                                <a href="#">
+                                <a href="../home/all_sport-bras.php">
                                     <img class="img-thumbnail" src="../images/SBR1.jpeg" style=" width:70px; height:auto; display:inline;">
                                     <p style="padding-left:10px; display:inline;">Sport-Bras</p>
                                 </a>
                             </div>
                             <div class="container cat-shop-menu">
-                                <a href="#">
+                                <a href="../home/all_tank-tops.php">
                                     <img class="img-thumbnail" src="../images/TKT1.jpeg" style=" width:70px; height:auto; display:inline;">
                                     <p style="padding-left:10px; display:inline;">Tank-Tops</p>
                                 </a>
@@ -47,13 +47,13 @@
                                 </a>
                             </div>
                             <div class="container cat-shop-menu">
-                                <a href="#">
+                                <a href="../home/all_shorts.php">
                                     <img class="img-thumbnail" src="../images/SHR1.jpeg" style=" width:70px; height:auto; display:inline;">
                                     <p style="padding-left:10px; display:inline;">Shorts</p>
                                 </a>
                             </div>
                             <div class="container cat-shop-menu">
-                                <a href="../home/all_t-shirts.php">
+                                <a href="../home/all_joggers.php">
                                     <img class="img-thumbnail" src="../images/JGR1.jpeg" style=" width:70px; height:auto; display:inline;">
                                     <p style="padding-left:10px; display:inline;">Joggers</p>
                                 </a>
@@ -63,13 +63,13 @@
                             <h6 class="subheader-shop-menu">Outer-Wear</h6>
                             <hr>
                             <div class="container cat-shop-menu">
-                                <a href="#">
+                                <a href="../home/all_sweatshirts.php">
                                     <img class="img-thumbnail" src="../images/SWS1.jpeg" style=" width:70px; height:auto; display:inline;">
                                     <p style="padding-left:10px; display:inline;">Sweat-Shirts</p>
                                 </a>
                             </div>
                             <div class="container cat-shop-menu">
-                                <a href="#">
+                                <a href="../home/all_jackets.php">
                                     <img class="img-thumbnail" src="../images/JKT1.jpeg" style=" width:70px; height:auto; display:inline;">
                                     <p style="padding-left:10px; display:inline;">Jackets</p>
                                 </a>
@@ -79,7 +79,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link women" href="#">ABOUT</a>
+                <a class="nav-link women" href="../home/about.php">ABOUT</a>
             </li>
         </ul>
     </div>
@@ -89,19 +89,19 @@
         </button>
         <a class="navbar-brand" href="../home/index.php"><img src="../images/logo1.png" alt="BLOC36" style="width:100px;height:50px;"></a>
         <?php if (isset($_SESSION['email'])) { ?>
-        <a class="cart" href="../home/cart.php"><i class="material-icons" style="vertical-align:-19px;">shopping_cart</i><?php echo $_SESSION['total'] ?></a>
+        <a class="cart" href="../home/cart.php" title="My Cart"><i class="material-icons" style="vertical-align:-19px;">shopping_cart</i><?php echo $_SESSION['total'] ?></a>
         <?php } else { ?>
-            <a class="cart" href="../home/login.php"><i class="material-icons" style="vertical-align:middle;">person</i></a>
+            <a class="cart" href="../home/login.php" title="Login/Signup"><i class="material-icons" style="vertical-align:middle;">person</i></a>
         <?php } ?>    
     </div>
     <div class="navbar-collapse collapse w-10 order-3 dual-collapse2">
         <ul class="navbar-nav flex-row ml-md-auto d-md-flex" style="justify-content: space-around;">
             <?php if (isset($_SESSION['email'])) { ?> 
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="material-icons">settings</i></a>
+                <a class="nav-link" href="../home/my_account.php" title="My Account"><i class="material-icons">account_circle</i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../home/logout.php"><img src="../images/signout2.png" style="width:24px; height:20px;"></a>
+                <a class="nav-link" href="../home/logout.php" title="Logout"><img src="../images/signout2.png" style="width:24px; height:20px;"></a>
             </li>
             <?php } ?>
         </ul>
