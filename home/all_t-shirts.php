@@ -145,11 +145,11 @@
                         ?>
                                 <div class="col col-xs-6 col-lg-3" style="margin-top: 50px;">
                                     <div class="container product-size-form-container">
-                                        <a href="../home/product.php?id=<?php echo $row["ProductID"]; ?>">
+                                        <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row['prod_color']; ?>">
                                         <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="width:200px !important;height:auto;">
                                         </a>
                                         <div class="caption">
-                                            <a href="../home/product.php?id=<?php echo $row["ProductID"]; ?>" style="color:#212a2f; text-decoration: none;">
+                                            <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row['prod_color']; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p style="font-weight:bold;">Rs. <?php echo $row["prod_price"]; ?></p>  
                                             </a>
@@ -159,37 +159,37 @@
                                                     <form method="post" action="../includes/cart-add.php?id=<?php echo $row["ProductID"]; ?>">
                                                         <div class="form-group sizes">
                                                             <h4 style="letter-spacing: 1.5px; font-size: 15px; font-weight:700; color:#212a2f;">Size</h4>
-                                                            <?php if($row["prod_size_xs"] == 'yes') {?>
+                                                            <?php if($row["prod_size_xs"] == 'yes' && $row["inventory_size_xs"] > 3) {?>
                                                             <label>
                                                                 <input class="size-list-input" type="radio" name="size" id="size" value="XS" checked>
                                                                 <span class="size-list-span">XS</span>
                                                             </label>
                                                             <?php } ?>
-                                                            <?php if($row["prod_size_s"] == 'yes') {?>
+                                                            <?php if($row["prod_size_s"] == 'yes' && $row["inventory_size_s"] > 3) {?>
                                                             <label>
                                                                 <input class="size-list-input" type="radio" name="size" id="size" value="S">
                                                                 <span class="size-list-span">S</span>
                                                             </label>
                                                             <?php } ?>
-                                                            <?php if($row["prod_size_m"] == 'yes') {?>
+                                                            <?php if($row["prod_size_m"] == 'yes' && $row["inventory_size_m"] > 3) {?>
                                                             <label>
                                                                 <input class="size-list-input" type="radio" name="size" id="size" value="M">
                                                                 <span class="size-list-span">M</span>
                                                             </label>
                                                             <?php } ?>
-                                                            <?php if($row["prod_size_l"] == 'yes') {?>
+                                                            <?php if($row["prod_size_l"] == 'yes' && $row["inventory_size_l"] > 3) {?>
                                                             <label>
                                                                 <input class="size-list-input" type="radio" name="size" id="size" value="L">
                                                                 <span class="size-list-span">L</span>
                                                             </label>
                                                             <?php } ?>
-                                                            <?php if($row["prod_size_xl"] == 'yes') {?>
+                                                            <?php if($row["prod_size_xl"] == 'yes' && $row["inventory_size_xl"] > 3) {?>
                                                             <label>
                                                                 <input class="size-list-input" type="radio" name="size" id="size" value="XL">
                                                                 <span class="size-list-span">XL</span>
                                                             </label>
                                                             <?php } ?>
-                                                            <?php if($row["prod_size_xxl"] == 'yes') {?>
+                                                            <?php if($row["prod_size_xxl"] == 'yes' && $row["inventory_size_xxl"] > 3) {?>
                                                             <label>
                                                                 <input class="size-list-input" type="radio" name="size" id="size" value="XXL">
                                                                 <span class="size-list-span">XXL</span>
@@ -226,37 +226,37 @@
                                                 <form method="post" action="../includes/cart-add.php?id=<?php echo $row["ProductID"]; ?>">
                                                     <div class="form-group">
                                                         <h4 style="letter-spacing: 1.5px; font-size: 15px; font-weight:700; color:#212a2f;">Size</h4>
-                                                        <?php if($row["prod_size_xs"] == 'yes') {?>
+                                                        <?php if($row["prod_size_xs"] == 'yes' && $row["inventory_size_xs"] > 3) {?>
                                                         <label>
                                                             <input class="size-list-input" type="radio" name="size" id="size" value="XS" checked>
                                                             <span class="size-list-span">XS</span>
                                                         </label>
                                                         <?php } ?>
-                                                        <?php if($row["prod_size_s"] == 'yes') {?>
+                                                        <?php if($row["prod_size_s"] == 'yes' && $row["inventory_size_s"] > 3) {?>
                                                         <label>
                                                             <input class="size-list-input" type="radio" name="size" id="size" value="S">
                                                             <span class="size-list-span">S</span>
                                                         </label>
                                                         <?php } ?>
-                                                        <?php if($row["prod_size_m"] == 'yes') {?>
+                                                        <?php if($row["prod_size_m"] == 'yes' && $row["inventory_size_m"] > 3) {?>
                                                         <label>
                                                             <input class="size-list-input" type="radio" name="size" id="size" value="M">
                                                             <span class="size-list-span">M</span>
                                                         </label>
                                                         <?php } ?>
-                                                        <?php if($row["prod_size_l"] == 'yes') {?>
+                                                        <?php if($row["prod_size_l"] == 'yes' && $row["inventory_size_l"] > 3) {?>
                                                         <label>
                                                             <input class="size-list-input" type="radio" name="size" id="size" value="L">
                                                             <span class="size-list-span">L</span>
                                                         </label>
                                                         <?php } ?>
-                                                        <?php if($row["prod_size_xl"] == 'yes') {?>
+                                                        <?php if($row["prod_size_xl"] == 'yes' && $row["inventory_size_xl"] > 3) {?>
                                                         <label>
                                                             <input class="size-list-input" type="radio" name="size" id="size" value="XL">
                                                             <span class="size-list-span">XL</span>
                                                         </label>
                                                         <?php } ?>
-                                                        <?php if($row["prod_size_xxl"] == 'yes') {?>
+                                                        <?php if($row["prod_size_xxl"] == 'yes' && $row["inventory_size_xxl"] > 3) {?>
                                                         <label>
                                                             <input class="size-list-input" type="radio" name="size" id="size" value="XXL">
                                                             <span class="size-list-span">XXL</span>
@@ -310,15 +310,16 @@
                 $(".product_check").click(function(){
                     $("#loader").show();
                     var action = 'data';
+                    var product = 'T-Shirt';
                     var color = get_filter_text('color');
                     var fit = get_filter_text('fit');
                     var material = get_filter_text('material');
                     var length = get_filter_text('length');
                    
                     $.ajax({
-                        url: '../includes/fetch_tshirt.php',
+                        url: '../includes/fetch_products.php',
                         method: 'POST',
-                        data:{action:action, color:color, fit:fit, material:material, length:length},
+                        data:{action:action, product:product, color:color, fit:fit, material:material, length:length},
                         success:function(data){
                             $("#result").html(data);
                             $("#loader").hide();

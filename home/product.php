@@ -2,6 +2,7 @@
     require("../includes/connect.php");
     include("../includes/check_if_added.php");
     include("../includes/image_exist.php");
+    require('../includes/delhivery_config.php');
 ?>   
 
 <?php 
@@ -9,19 +10,20 @@
     ini_set('display_errors', '1');
 ?>
 <?php 
-if (isset($_GET['id'])) {  
-    $id = preg_replace('#[^0-9]#i', '', $_GET['id']); 
-    $query = "SELECT * FROM products1 WHERE ProductID='$id' LIMIT 1";
+if (isset($_GET['styleCode']) && isset($_GET['color'])) {  
+    $styleCode = $_GET['styleCode'];
+    $color = $_GET['color'];
+    $query = "SELECT * FROM products1 WHERE styleCode='$styleCode' AND prod_color='$color' LIMIT 1";
     $result = mysqli_query($con, $query)or die(mysqli_error($con));
     $productCount = mysqli_num_rows($result);
     if ($productCount > 0) {
         while($row = mysqli_fetch_array($result)){ 
+            $id = $row["ProductID"];
             $name = $row["prod_name"];
             $price = $row["prod_price"];
             $details = $row["prod_details"];
             $category = $row["prod_category"];
             $subcategory = $row["prod_subcategory"];
-            $color = $row["prod_color"];
             $fit = $row["prod_fit"];
             $material = $row["prod_material"];
             $length = $row["prod_length"];
@@ -31,6 +33,12 @@ if (isset($_GET['id'])) {
             $size_l = $row["prod_size_l"];
             $size_xl = $row["prod_size_xl"];
             $size_xxl = $row["prod_size_xxl"];
+            $inventory_xs = $row["inventory_size_xs"];
+            $inventory_s = $row["inventory_size_s"];
+            $inventory_m = $row["inventory_size_m"];
+            $inventory_l = $row["inventory_size_l"];
+            $inventory_xl = $row["inventory_size_xl"];
+            $inventory_xxl = $row["inventory_size_xxl"];
         }
     } 
     else 
@@ -44,6 +52,7 @@ else
     echo "Data to render this page is missing.";
     exit();
 }
+
 ?>
 <html>
     <head>
@@ -64,11 +73,6 @@ else
         include("../includes/header.php");
         ?>
         <div class="container-fluid product_page">
-            <div class="row" style="margin-top:40px;">
-                <h2 style="letter-spacing: 1.5px; text-decoration:underline; margin-left:10%; font-size:18px; font-weight:600; display:inline;"> <?php echo $category; ?> </h2>
-                <h2 style="letter-spacing: 1.5px; margin-left:1%; font-size:18px; font-weight:600; display:inline;"> > </h2>
-                <h2 style="letter-spacing: 1.5px; text-decoration:underline; margin-left:1%; font-size:18px; font-weight:600; display:inline;"> <?php echo $subcategory; ?> </h2>
-            </div>
             <div class="row" style="margin:80px 0px 80px 0px;">
                 <div class="col-lg"></div>
                 <br>
@@ -203,7 +207,67 @@ else
                 <br>
                 <div class="col-lg">
                     <br>
-                    <h1 style="white-space:nowrap; letter-spacing: 1.5px; font-size: 30px; font-weight:900;"><?php echo $name; ?></h1>
+                    <div style="display:flex; flex-direction:row; justify-content:flex-start;">
+                        <h1 style="white-space:nowrap; letter-spacing: 1.5px; font-size: 30px; font-weight:900;"><?php echo $name; ?></h1>
+                        &emsp;
+                        <?php
+                        if(isset($_SESSION['email']))
+                        {
+                            if(!check_if_added_to_wishlist($id))
+                            {
+                            ?>
+                                <span title="Wishlist" style="padding-top:10px; font-size:20px; cursor:pointer;" onclick="wishlist_func()" id="wishlist" class="material-icons">favorite_border</span>
+                            <?php
+                            }
+                            else
+                            {
+                            ?>
+                                <span title="Wishlist" style="padding-top:10px; font-size:20px; cursor:pointer; color:red;" onclick="wishlist_func()" id="wishlist" class="material-icons">favorite</span>
+
+                            <?php
+                            }
+                        }
+                        else
+                        {
+                        ?>
+                            <a style="text-decoration:none !important;color:black;" href="../home/login.php"><span title="Wishlist" style="padding-top:10px; font-size:20px; cursor:pointer;" class="material-icons">favorite_border</span></a>
+                        <?php
+                        }
+                        ?>
+                        <script>
+                            function wishlist_func()
+                            {
+                                var x = document.getElementById("wishlist").innerText;
+                                if(x == 'favorite_border')
+                                {
+                                    document.getElementById("wishlist").innerHTML="favorite";
+                                    document.getElementById("wishlist").style.color="red";
+                                    var action = 'action';
+                                    $.ajax({
+                                        url: '../includes/wishlist-add.php',
+                                        method: 'POST',
+                                        data:{action:action, ProductID:<?php echo $id;?>},
+                                        success:function(data){
+                                            console.log(data);
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    document.getElementById("wishlist").innerHTML="favorite_border";
+                                    document.getElementById("wishlist").style.color="black";
+                                    $.ajax({
+                                        url: '../includes/wishlist-remove.php',
+                                        method: 'POST',
+                                        data:{ProductID:<?php echo $id;?>},
+                                        success:function(data){
+                                            console.log(data);
+                                        }
+                                    });
+                                }
+                            }
+                        </script>
+                    </div>
                     <br>
                     <h2 style="letter-spacing: 1.5px; font-size:18px; font-weight:600"> Rs. <?php echo $price; ?> </h2>
                     <?php
@@ -232,30 +296,45 @@ else
                         echo"<p>No Rating Yet</p>";
                     }
                     ?>
-                    <br>
                     <h4 style="margin-top:20px; letter-spacing: 1.5px; font-size: 15px; font-weight:700;">Description:</h4>
                     <h2 style="letter-spacing: 0.75px; font-size:15px; font-weight:300"> <?php echo $details; ?> </h2>
+                    <br>
+                    <h4 style="letter-spacing: 1.5px; font-size: 15px; font-weight:700;">Color</h4>
+                    <?php
+                    $color_query = "SELECT DISTINCT prod_color FROM products1 WHERE styleCode='$styleCode'";
+                    $color_result = mysqli_query($con, $color_query);
+                    ?>
+                    <select class="form-control" onchange="location = this.value">
+                        <?php
+                        while($color_row = mysqli_fetch_array($color_result))
+                        {
+                        ?>
+                        <option value="../home/product.php?styleCode=<?php echo $styleCode; ?>&color=<?php echo $color_row['prod_color']; ?>" <?php if($color == $color_row['prod_color']){ ?> selected <?php } ?>><?php echo $color_row['prod_color']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
                     <br>
                     <form method="post" action="../includes/cart-add.php?id=<?php echo $id; ?>">
                         <div class="form-group">
                             <h4 style="letter-spacing: 1.5px; font-size: 15px; font-weight:700;">Size</h4>
                             <select class="form-control" id="size" name="size">
-                                <?php if($size_xs == 'yes') {?>
+                                <?php if($size_xs == 'yes' && $inventory_xs > 3) {?>
                                 <option> XS </option>
                                 <?php } ?>
-                                <?php if($size_s == 'yes') {?>
+                                <?php if($size_s == 'yes' && $inventory_s > 3) {?>
                                 <option> S </option>
                                 <?php } ?>
-                                <?php if($size_m == 'yes') {?>
+                                <?php if($size_m == 'yes' && $inventory_m > 3) {?>
                                 <option> M </option>
                                 <?php } ?>
-                                <?php if($size_l == 'yes') {?>
+                                <?php if($size_l == 'yes' && $inventory_l > 3) {?>
                                 <option> L </option>
                                 <?php } ?>
-                                <?php if($size_xl == 'yes') {?>
+                                <?php if($size_xl == 'yes' && $inventory_xl > 3) {?>
                                 <option> XL </option>
                                 <?php } ?>
-                                <?php if($size_xxl == 'yes') {?>
+                                <?php if($size_xxl == 'yes' && $inventory_xxl > 3) {?>
                                 <option> XXL </option>
                                 <?php } ?>
                             </select>
@@ -272,27 +351,78 @@ else
                         <br>
                         <?php 
                             if (!isset($_SESSION['email'])) 
-                            { ?>
+                            { 
+                        ?>
                                 <a href="../home/login.php"><button type="button" class="button1" style="vertical-align:middle">Add to Cart</button></a>
-                            <?php
-                            } else {
+                        <?php
+                            } 
+                            else 
+                            {
                                 if (check_if_added_to_cart($id))
-                                    { 
-                                        echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>Added to Cart</button></a>';
-                                    } else {
-                                    ?>
-                                        <div class="form-group">
-                                            <button type="submit" class="button1" style="vertical-align:middle" id="add_cart" name="add_cart"><span>Add to Cart </span></button>
-                                        </div>
-                                    <?php
-                                            }
-                                    }?>
+                                { 
+                                    echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>Added to Cart</button></a>';
+                                } 
+                                else 
+                                {
+                        ?>
+                                    <div class="form-group">
+                                        <button type="submit" class="button1" style="vertical-align:middle" id="add_cart" name="add_cart"><span>Add to Cart </span></button>
+                                    </div>
+                        <?php
+                                }
+                            }
+                        ?>
                     </form>
                 </div> 
                 <br>
                 <div class="col-lg"></div>
             </div>
             
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="container" style="margin-bottom:50px;">
+                            <h5 style="text-decoration:underline;">Check Pin-Code Serviceability</h5>
+                            <div style="display:flex;">
+                                <input style="margin-top:7px;width:200px;" type="text" maxlength="6" class="form-control" name="pincode" id="pincode" value="" placeholder="Enter 6-Digit Pin-Code" required>
+                                <img src="../images/loader.gif" id="loader" width="40" style="margin-top:7px;display:none">
+                                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button" name="checkPincode" id="checkPincode" onclick="checkService()" style="cursor:pointer;margin-top:7px;background-color:#b8beff;padding:7px 10px 0px 10px;border-radius:.25rem">search</i>
+                            </div>    
+                            <br>
+                            <p id="service" style="font-size:14px; font-weight:bold;"></p>
+                            <script>
+                                function checkService()
+                                {
+                                    var pincode = null;
+                                    pincode = document.getElementById("pincode").value;
+                                    var checkPincode = 'checkPincode';
+                                    $("#checkPincode").hide();
+                                    $("#loader").show();
+                                    $.ajax({
+                                        url: '../includes/checkServiceability.php',
+                                        method: 'POST',
+                                        data:{checkPincode:checkPincode, pincode:pincode},
+                                        success:function(data){
+                                            $("#checkPincode").show();
+                                            $("#loader").hide();
+                                            if(data=="Service Available!")
+                                            {
+                                                document.getElementById("service").innerHTML = data;
+                                                document.getElementById("service").style.color = "blue";
+                                            }
+                                            else
+                                            {
+                                                document.getElementById("service").innerHTML = data;
+                                                document.getElementById("service").style.color = "red";
+                                            }
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="container">
                 <div class="row" style="margin:0px 0px 80px 0px;">

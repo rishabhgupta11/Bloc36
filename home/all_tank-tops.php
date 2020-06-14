@@ -25,13 +25,13 @@
             <div class="row no-gutters">
                 <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="prod-women-image">
-                        <img class="prod-women-image-2" src="../images/legging-banner.jpg" alt="BLOC36">
+                        <img class="prod-women-image-2" src="../images/tanktop-banner.jpg" alt="BLOC36">
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 prod-women-banner">
                     <div style='padding:16%'>
-                        <h1 style='font-size: 1.5rem'> Women's Leggings </h1>
-                        <h4 style='font-size: 0.9rem'> The world’s most comfortable leggings made from premium materials go perfectly with your daily escapades. </h4>
+                        <h1 style='font-size: 1.5rem'> Women's Tank-Tops </h1>
+                        <h4 style='font-size: 0.9rem'> The world’s most comfortable tank-tops made from premium materials go perfectly with your daily escapades. </h4>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                         <div class="dropdown-menu">
                             <div style="width: 200px; height: auto; overflow-y: auto; overflow-x: hidden;">
                             <?php
-                                $sql="SELECT DISTINCT prod_color FROM products1 WHERE prod_subcategory='Leggings' ORDER BY prod_color";
+                                $sql="SELECT DISTINCT prod_color FROM products1 WHERE prod_subcategory='Tank-Top' ORDER BY prod_color";
                                 $result=$conn->query($sql);
                                 while($row=$result->fetch_assoc()){
                                 ?>
@@ -65,7 +65,7 @@
                         <div class="dropdown-menu">
                             <div style="width: 200px; height: auto; overflow-y: auto; overflow-x: hidden;">
                             <?php
-                            $sql="SELECT DISTINCT prod_fit FROM products1 WHERE prod_subcategory='Leggings' ORDER BY prod_fit";
+                            $sql="SELECT DISTINCT prod_fit FROM products1 WHERE prod_subcategory='Tank-Top' ORDER BY prod_fit";
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc()){
                             ?>
@@ -84,7 +84,7 @@
                         <div class="dropdown-menu">
                             <div style="width: 200px; height: auto; overflow-y: auto; overflow-x: hidden;">
                             <?php
-                            $sql="SELECT DISTINCT prod_material FROM products1 WHERE prod_subcategory='Leggings' ORDER BY prod_material";
+                            $sql="SELECT DISTINCT prod_material FROM products1 WHERE prod_subcategory='Tank-Top' ORDER BY prod_material";
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc()){
                             ?>
@@ -103,7 +103,7 @@
                         <div class="dropdown-menu">
                             <div style="width: 200px; height: auto; overflow-y: auto; overflow-x: hidden;">
                             <?php
-                            $sql="SELECT DISTINCT prod_length FROM products1 WHERE prod_subcategory='Leggings' ORDER BY prod_length";
+                            $sql="SELECT DISTINCT prod_length FROM products1 WHERE prod_subcategory='Tank-Top' ORDER BY prod_length";
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc()){
                             ?>
@@ -123,7 +123,7 @@
         </div>
         
         <div class="container"> 
-            <h2 style="margin-top:50px;padding-top:25px;color:#212a2f; font-weight:900;">Women's Leggings</h2>
+            <h2 style="margin-top:50px;padding-top:25px;color:#212a2f; font-weight:900;">Women's Tank-Tops</h2>
             <p id="textChange" style="padding-top:5px;padding-bottom:5px;color: #212a2f;font-size:16px;font-weight:700;text-decoration:underline;">All Items</p>
             <hr>
         </div>
@@ -137,7 +137,7 @@
                     <div class="row text-center" id="result">
                         <?php
                             $number=0;
-                            $sql="SELECT * FROM products1 WHERE prod_subcategory='Leggings'";
+                            $sql="SELECT * FROM products1 WHERE prod_subcategory='Tank-Top'";
                             $result=$conn->query($sql);
                             while($row = $result->fetch_assoc())
                             {
@@ -224,7 +224,7 @@
                                             </div>
                                             <div class="product-size-form">
                                                 <form method="post" action="../includes/cart-add.php?id=<?php echo $row["ProductID"]; ?>">
-                                                    <div class="form-group sizes">
+                                                    <div class="form-group">
                                                         <h4 style="letter-spacing: 1.5px; font-size: 15px; font-weight:700; color:#212a2f;">Size</h4>
                                                         <?php if($row["prod_size_xs"] == 'yes' && $row["inventory_size_xs"] > 3) {?>
                                                         <label>
@@ -290,7 +290,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>        
+                                </div>
                         <?php
                             }
                         ?>
@@ -310,7 +310,7 @@
                 $(".product_check").click(function(){
                     $("#loader").show();
                     var action = 'data';
-                    var product = 'Leggings';
+                    var product = 'Tank-Top';
                     var color = get_filter_text('color');
                     var fit = get_filter_text('fit');
                     var material = get_filter_text('material');
