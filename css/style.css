@@ -317,7 +317,6 @@ input{
     color: #f8f8f8;
     max-width:100%;
     height: auto;
-    background: url(../images/products-women-banner.jpg) no-repeat center center;
 }
 
 .prod-women-banner{
@@ -340,7 +339,6 @@ input{
         color: #f8f8f8;
         width:320px;
         height: auto;
-        background: url(../images/products-women-banner.jpg) no-repeat center center;
     }
 }
 @media only screen and (min-width: 375px) {
@@ -349,7 +347,6 @@ input{
         color: #f8f8f8;
         width:375px;
         height: auto;
-        background: url(../images/products-women-banner.jpg) no-repeat center center;
     }
 }
 @media only screen and (min-width: 425px) {
@@ -358,7 +355,6 @@ input{
         color: #f8f8f8;
         width:425px;
         height: auto;
-        background: url(../images/products-women-banner.jpg) no-repeat center center;
     }
 }
 @media only screen and (min-width: 768px) {
@@ -367,7 +363,6 @@ input{
         color: #f8f8f8;
         width:768px;
         height: auto;
-        background: url(../images/products-women-banner.jpg) no-repeat center center;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -376,7 +371,6 @@ input{
         color: #f8f8f8;
         width:635px;
         height: auto;
-        background: url(../images/products-women-banner.jpg) no-repeat center center;
     }
 }
 
@@ -401,6 +395,7 @@ input{
         letter-spacing: 1px;
     }
 }
+
 
 .filter{
     padding-bottom: 10px;
@@ -468,7 +463,7 @@ th{
 }
 
 .cart-content a{
-    padding-bottom: 7px;
+    padding-bottom: 5px;
     border-bottom: 2px solid;
     color: #212a2f;
     font-size: 13px;
@@ -602,6 +597,11 @@ th{
     }
 }
 
+.sizes{
+    white-space: nowrap;
+    font-size: 12px;
+}
+
 .quick-add{
     font-size: 13px;
     letter-spacing: 1.5px;
@@ -666,4 +666,108 @@ th{
 
 hr{
     margin:0px;
+}
+
+
+@media only screen and (min-width:0px){
+    #deliveryName{
+        font-size:14px;
+    }
+    #deliveryEmail{
+        font-size:14px;
+    }
+    #deliveryContact{
+        font-size:14px;
+    }
+    .deliveryAddress{
+        font-size:14px;
+    }
+    .address-list-span{
+        font-size:13px;
+    }
+    .razorpay-payment-button{
+        font-size:14px;
+        padding: 10px 40px 10px 40px;
+    }
+}
+@media only screen and (min-width:322px){
+    #deliveryName{
+        font-size:16px;
+    }
+    #deliveryEmail{
+        font-size:16px;
+    }
+    #deliveryContact{
+        font-size:16px;
+    }
+    .deliveryAddress{
+        font-size:16px;
+    }
+    .address-list-span{
+        font-size:15px;
+    }
+    .razorpay-payment-button{
+        font-size:16px;
+        padding: 10px 50px 15px 50px;
+    }
+}
+@media only screen and (min-width:768px){
+    #deliveryName{
+        font-size:18px;
+    }
+    #deliveryEmail{
+        font-size:18px;
+    }
+    #deliveryContact{
+        font-size:18px;
+    }
+    .deliveryAddress{
+        font-size:18px;
+    }
+    .address-list-span{
+        font-size:16px;
+    }
+    .razorpay-payment-button{
+        font-size:18px;
+        padding: 15px 100px 15px 100px;
+    }
+}
+
+.razorpay-payment-button{
+    color: #f5f5f5;
+    background-color: #000000;
+    text-align: center;
+    letter-spacing: 4px;
+    transition-duration: 0.5s;
+}
+
+.razorpay-payment-button:hover{
+    color: #000000;
+    background-color: #f5f5f5;
+    border: 2px solid #000000;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.my_acc_set{
+    background-color:black; 
+    color:white; 
+    padding:30px; 
+    border:1px solid #5f5f5f;
+    transition-duration: 0.4s;
+    margin-bottom: 15px;
+}
+.my_acc_set:hover{
+    background-color:#c4c1c0; 
+    color:black; 
+    font-weight:bold;
+    border:1px solid #c4c1c0;
+}
+.my_acc_set_link{
+    text-decoration:none !important; 
+}
+@media only screen and (min-width:426px){
+    .my_acc_set{
+        margin-left:30%; 
+        margin-right:30%
+    }
 }
