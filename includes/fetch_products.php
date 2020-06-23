@@ -32,9 +32,10 @@ if(isset($_POST['action'])){
             $output.='  <div class="col col-xs-6 col-lg-3" style="margin-top: 50px;">
                             <div class="container product-size-form-container">
                                 <a href="../home/product.php?styleCode='.$row["styleCode"].'&color='.$row['prod_color'].'">
-                                <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id='.$row["ProductID"].'" style="width:200px !important;height:auto;">
+                                <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id='.$row["ProductID"].'" style="margin-top:10px;width:170px;height:auto;">
                                 </a>
                                 <div class="caption">
+                                    <br>
                                     <a href="../home/product.php?styleCode='.$row["styleCode"].'&color='.$row['prod_color'].'" style="color:#212a2f; text-decoration: none;">
                                     <h3 class="product-name">'.$row["prod_name"].'</h3>
                                     <p style="font-weight:bold;">Rs. '.$row["prod_price"].'</p>  
@@ -92,7 +93,7 @@ if(isset($_POST['action'])){
                                                     {
                                                         if (check_if_added_to_cart($row["ProductID"]))
                                                         { 
-                                                            echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button></a>';
+                                                            $output.='<button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button>';
                                                         } 
                                                         else 
                                                         {
@@ -157,7 +158,7 @@ if(isset($_POST['action'])){
                                                 {
                                                     if (check_if_added_to_cart($row["ProductID"]))
                                                     { 
-                                                        echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button></a>';
+                                                        $output.='<button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button>';
                                                     } 
                                                     else 
                                                     {
