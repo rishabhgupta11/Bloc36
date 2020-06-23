@@ -3,6 +3,7 @@
     include("../includes/check_if_added.php");
     include("../includes/image_exist.php");
     require('../includes/delhivery_config.php');
+    include("../includes/fetch_css.php");
 ?>   
 
 <?php 
@@ -60,7 +61,7 @@ else
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $cssfilename; ?>" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,10 +74,9 @@ else
         include("../includes/header.php");
         ?>
         <div class="container-fluid product_page">
-            <div class="row" style="margin:80px 0px 80px 0px;">
-                <div class="col-lg"></div>
-                <br>
-                <div class="col-lg text-center">
+            <div class="row" style="margin:30px 0px 80px 0px;">
+                
+                <div class="mobile-image-carousel col-lg text-center" style="padding:0px;">
                     <div id="carouselExampleIndicators" class="carousel slide product-product-image" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <?php  
@@ -131,7 +131,7 @@ else
                             {
                             ?>    
                                 <div class="carousel-item active">
-                                    <a href="../includes/image_view_1.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_1.php?id=<?php echo $id; ?>" width="280" height="425"> </a><br>
+                                    <a href="../includes/image_view_1.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_1.php?id=<?php echo $id; ?>" style="width:330px;height:auto;"> </a><br>
                                 </div>
                             <?php
                             }
@@ -142,7 +142,7 @@ else
                             {
                             ?>    
                                 <div class="carousel-item">
-                                    <a href="../includes/image_view_2.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_2.php?id=<?php echo $id; ?>" width="280" height="425"> </a><br>
+                                    <a href="../includes/image_view_2.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_2.php?id=<?php echo $id; ?>" style="width:330px;height:auto;"> </a><br>
                                 </div>
                             <?php
                             }
@@ -153,7 +153,7 @@ else
                             {
                             ?>    
                                 <div class="carousel-item">
-                                    <a href="../includes/image_view_3.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_3.php?id=<?php echo $id; ?>" width="280" height="425"> </a><br>
+                                    <a href="../includes/image_view_3.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_3.php?id=<?php echo $id; ?>" style="width:330px;height:auto;"> </a><br>
                                 </div>
                             <?php
                             }
@@ -164,7 +164,7 @@ else
                             {
                             ?>    
                                 <div class="carousel-item">
-                                    <a href="../includes/image_view_4.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_4.php?id=<?php echo $id; ?>" width="280" height="425"> </a><br>
+                                    <a href="../includes/image_view_4.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_4.php?id=<?php echo $id; ?>" style="width:330px;height:auto;"> </a><br>
                                 </div>
                             <?php
                             }
@@ -175,7 +175,7 @@ else
                             {
                             ?>    
                                 <div class="carousel-item">
-                                    <a href="../includes/image_view_5.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_5.php?id=<?php echo $id; ?>" width="280" height="425"> </a><br>
+                                    <a href="../includes/image_view_5.php?id=<?php echo $id; ?>"> <img src="../includes/image_view_5.php?id=<?php echo $id; ?>" style="width:330px;height:auto;"> </a><br>
                                 </div>
                             <?php
                             }
@@ -186,26 +186,158 @@ else
                             {
                             ?>    
                                 <div class="carousel-item">
-                                    <a href="../includes/image_view_6.php?id=<?php echo $id; ?>" ><img src="../includes/image_view_6.php?id=<?php echo $id; ?>" width="280" height="425"> </a><br>
+                                    <a href="../includes/image_view_6.php?id=<?php echo $id; ?>" ><img src="../includes/image_view_6.php?id=<?php echo $id; ?>" style="width:330px;height:auto;"> </a><br>
                                 </div>
                             <?php
                             }
                             ?>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
                 </div>
                 <br>
-                <div class="col-lg"></div>
-                <br>
-                <div class="col-lg">
+                
+                
+                <div class="desktop-image-carousel col-lg text-center" style="margin-left:10%;padding:0px;">
+                    <div style="display:flex;">
+                        <div class="product-image-container">
+                            <div id="product-image">
+                                <a href="../includes/image_view_1.php?id=<?php echo $id; ?>" ><img class="inner-product-image" src="../includes/image_view_1.php?id=<?php echo $id; ?>"> </a><br>
+                            </div>
+                        </div>
+                        &emsp;
+                        <div style="display:flex;justify-content:flex-start;flex-direction:column;padding-top:10px;">
+                            <?php  
+                            if(imageexist1($id) == 0)
+                            {
+                            ?>  
+                                <label>
+                                    <input onclick="disp_img1()" class="image-select-input" type="radio" name="image-select-radio" id="image-select-radio" checked>
+                                    <span class="image-select-span">
+                                        <img src="../includes/image_view_1.php?id=<?php echo $id; ?>" style="width:40px;height:60px;">
+                                    </span>
+                                </label>
+                            <br>
+                            <?php
+                            }
+                            ?>
+
+                            <?php  
+                            if(imageexist2($id) == 0)
+                            {
+                            ?>    
+                                <label>
+                                    <input onclick="disp_img2()" class="image-select-input" type="radio" name="image-select-radio" id="image-select-radio">
+                                    <span class="image-select-span">
+                                        <img src="../includes/image_view_2.php?id=<?php echo $id; ?>" style="width:40px;height:60px;">
+                                    </span>
+                                </label>
+                                <br>
+                            <?php
+                            }
+                            ?>
+
+                            <?php  
+                            if(imageexist3($id) == 0)
+                            {
+                            ?>    
+                                <label>
+                                    <input onclick="disp_img3()" class="image-select-input" type="radio" name="image-select-radio" id="image-select-radio">
+                                    <span class="image-select-span">
+                                        <img src="../includes/image_view_3.php?id=<?php echo $id; ?>" style="width:40px;height:60px;">
+                                    </span>
+                                </label>
+                                <br>
+                            <?php
+                            }
+                            ?>
+
+                            <?php  
+                            if(imageexist4($id) == 0)
+                            {
+                            ?>    
+                                <label>
+                                    <input onclick="disp_img4()"class="image-select-input" type="radio" name="image-select-radio" id="image-select-radio">
+                                    <span class="image-select-span">
+                                        <img src="../includes/image_view_4.php?id=<?php echo $id; ?>" style="width:40px;height:60px;">
+                                    </span>
+                                </label>
+                                <br>
+                            <?php
+                            }
+                            ?>
+
+                            <?php  
+                            if(imageexist5($id) == 0)
+                            {
+                            ?>    
+                                <label>
+                                    <input onclick="disp_img5()" class="image-select-input" type="radio" name="image-select-radio" id="image-select-radio">
+                                    <span class="image-select-span">
+                                        <img src="../includes/image_view_5.php?id=<?php echo $id; ?>" style="width:40px;height:60px;">
+                                    </span>
+                                </label>
+                                <br>
+                            <?php
+                            }
+                            ?>
+
+                            <?php  
+                            if(imageexist6($id) == 0)
+                            {
+                            ?>    
+                                <label>
+                                    <input onclick="disp_img6()" class="image-select-input" type="radio" name="image-select-radio" id="image-select-radio">
+                                    <span class="image-select-span">
+                                        <img src="../includes/image_view_6.php?id=<?php echo $id; ?>" style="width:40px;height:60px;">
+                                    </span>
+                                </label>
+                                <br>
+                            <?php
+                            }
+                            ?>
+                            <script>
+                                function disp_img1() 
+                                {
+                                    var block = "<a href='../includes/image_view_1.php?id=<?php echo $id; ?>' ><img class='inner-product-image' src='../includes/image_view_1.php?id=<?php echo $id; ?>'> </a><br>";
+                                    document.getElementById("product-image").innerHTML=block;
+                                }
+                                
+                                function disp_img2() 
+                                {
+                                    var block = "<a href='../includes/image_view_2.php?id=<?php echo $id; ?>' ><img class='inner-product-image' src='../includes/image_view_2.php?id=<?php echo $id; ?>'> </a><br>";
+                                    document.getElementById("product-image").innerHTML=block;
+                                }
+                                
+                                function disp_img3() 
+                                {
+                                    var block = "<a href='../includes/image_view_3.php?id=<?php echo $id; ?>' ><img class='inner-product-image' src='../includes/image_view_3.php?id=<?php echo $id; ?>'> </a><br>";
+                                    document.getElementById("product-image").innerHTML=block;
+                                }
+                                
+                                function disp_img4() 
+                                {
+                                    var block = "<a href='../includes/image_view_4.php?id=<?php echo $id; ?>' ><img class='inner-product-image' src='../includes/image_view_4.php?id=<?php echo $id; ?>'> </a><br>";
+                                    document.getElementById("product-image").innerHTML=block;
+                                }
+                                
+                                function disp_img5() 
+                                {
+                                    var block = "<a href='../includes/image_view_5.php?id=<?php echo $id; ?>' ><img class='inner-product-image' src='../includes/image_view_5.php?id=<?php echo $id; ?>'> </a><br>";
+                                    document.getElementById("product-image").innerHTML=block;
+                                }
+                                
+                                function disp_img6() 
+                                {
+                                    var block = "<a href='../includes/image_view_6.php?id=<?php echo $id; ?>' ><img class='inner-product-image' src='../includes/image_view_6.php?id=<?php echo $id; ?>'> </a><br>";
+                                    document.getElementById("product-image").innerHTML=block;
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg product-description">
                     <br>
                     <div style="display:flex; flex-direction:row; justify-content:flex-start;">
                         <h1 style="white-space:nowrap; letter-spacing: 1.5px; font-size: 30px; font-weight:900;"><?php echo $name; ?></h1>
@@ -360,7 +492,9 @@ else
                             {
                                 if (check_if_added_to_cart($id))
                                 { 
-                                    echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>Added to Cart</button></a>';
+                                ?>
+                                    <button type="button" class="button1" style="vertical-align:middle" disabled>Added to Cart</button>
+                                <?php
                                 } 
                                 else 
                                 {
@@ -375,7 +509,6 @@ else
                     </form>
                 </div> 
                 <br>
-                <div class="col-lg"></div>
             </div>
             
             <div class="container">
@@ -426,43 +559,6 @@ else
             
             <div class="container">
                 <div class="row" style="margin:0px 0px 80px 0px;">
-                    <div class="col-lg">
-                        <h5 style="text-decoration:underline;">All Reviews</h5><br>
-                         <?php
-                        $query2 = "SELECT * FROM user_ratings JOIN user ON user_ratings.Email = user.Email WHERE ProductID='$id'";
-                        $result2 = mysqli_query($con,$query2)or die(mysqli_error($con));
-                        $productCount2 = mysqli_num_rows($result2);
-                        if ($productCount2 > 0) 
-                        {
-                            while($row2 = mysqli_fetch_array($result2))
-                            {
-                                $uname = $row2["Name"];
-                                $rating = $row2["rating"];
-                                $title = $row2["title"];
-                                $comment = $row2["comment"];
-                        ?>   
-                        <p style="font-weight:bold; font-size:14px; margin-top:20px; margin-bottom:5px;"><?php echo $uname; ?></p>
-                        <?php
-                        for($i=1; $i<=$rating; $i++)
-                        {
-                            echo"<span style='font-size:15px;' class='material-icons'>star</span>";
-                        }
-                        ?>
-                        <p style="font-weight:bold; font-size:13px; margin-top:1rem; margin-bottom:0px;"><?php echo $title; ?></p>
-                        <p style="font-size:13px;"><?php echo $comment; ?></p><br><hr>
-                        <?php
-                            }
-                        }
-                        else
-                        {
-                            echo"<h6> No Reviews Yet </h6>";
-                        }
-                        ?>       
-                    </div><br>
-                    
-                    
-                    <div class="col-lg"></div><br>
-                    
                     
                     <?php
                     if(isset($_SESSION['email']))
@@ -479,7 +575,7 @@ else
                                 $comment = $row3["comment"];
                     ?>
                                 <div class="col-lg">
-                                    <h5 style="text-decoration:underline;">Your Review</h5><br><br>
+                                    <h5 style="text-decoration:underline;">Your Review</h5><br>
                                     <?php
                                     for($i=1; $i<=$rating; $i++)
                                     {
@@ -489,14 +585,15 @@ else
                                     <p style="font-weight:bold; font-size:13px; margin-top:1rem; margin-bottom:0px;"><?php echo $title; ?></p>
                                     <p style="font-size:13px;"><?php echo $comment; ?></p>
                                 </div>
-                    <?php
+                                <br>    
+                        <?php
                             }
                         }
                         else
                         {
-                    ?>
+                        ?>
                             <div class="col-lg">
-                                <h5 style="text-decoration:underline;">Leave a Review</h5><br><br>
+                                <h5 style="text-decoration:underline;">Leave a Review</h5><br>
                                 <label>Rating</label>
                                 <div>
                                     <i class="fa fa-star" data-index="0"></i>
@@ -523,13 +620,106 @@ else
                                         <button type="submit" class="button10 button105" style="vertical-align:middle" id="save_review" name="save_review"><span>SUBMIT </span></button>
                                     </div>
                                 </form>
-                            </div><br>
-                    <?php
+                            </div>
+                            <br>
+                        <?php
                         }
+                        ?>
+                            
+                        <div class="col-lg"></div>
+                        <br>
+                    
+                        <div class="col-lg">
+                            <h5 style="text-decoration:underline;">All Reviews</h5>
+                             <?php
+                            $query2 = "SELECT * FROM user_ratings JOIN user ON user_ratings.Email = user.Email WHERE ProductID='$id'";
+                            $result2 = mysqli_query($con,$query2)or die(mysqli_error($con));
+                            $productCount2 = mysqli_num_rows($result2);
+                            if ($productCount2 > 0) 
+                            {
+                                while($row2 = mysqli_fetch_array($result2))
+                                {
+                                    $uname = $row2["Name"];
+                                    $rating = $row2["rating"];
+                                    $title = $row2["title"];
+                                    $comment = $row2["comment"];
+                            ?>   
+                                    <p style="font-weight:bold; font-size:14px; margin-top:20px; margin-bottom:5px;"><?php echo $uname; ?></p>
+                                    <?php
+                                    for($i=1; $i<=$rating; $i++)
+                                    {
+                                        echo"<span style='font-size:15px;' class='material-icons'>star</span>";
+                                    }
+                                    ?>
+                                    <p style="font-weight:bold; font-size:13px; margin-top:1rem; margin-bottom:0px;"><?php echo $title; ?></p>
+                                    <p style="font-size:13px;"><?php echo $comment; ?></p>
+                                    <br>
+                                    <hr>
+                            <?php
+                                }
+                            }
+                            else
+                            {
+                                echo"<br><h6> No Reviews Yet </h6>";
+                            }
+                            ?>       
+                        </div>
+                        <br>
+                    <?php
+                    }
+                    else 
+                    {
+                    ?>
+                        <div class="col-lg">
+                            <h5 style="text-decoration:underline;">All Reviews</h5>
+                             <?php
+                            $query2 = "SELECT * FROM user_ratings JOIN user ON user_ratings.Email = user.Email WHERE ProductID='$id'";
+                            $result2 = mysqli_query($con,$query2)or die(mysqli_error($con));
+                            $productCount2 = mysqli_num_rows($result2);
+                            if ($productCount2 > 0) 
+                            {
+                                while($row2 = mysqli_fetch_array($result2))
+                                {
+                                    $uname = $row2["Name"];
+                                    $rating = $row2["rating"];
+                                    $title = $row2["title"];
+                                    $comment = $row2["comment"];
+                            ?>   
+                                    <p style="font-weight:bold; font-size:14px; margin-top:20px; margin-bottom:5px;"><?php echo $uname; ?></p>
+                                    <?php
+                                    for($i=1; $i<=$rating; $i++)
+                                    {
+                                        echo"<span style='font-size:15px;' class='material-icons'>star</span>";
+                                    }
+                                    ?>
+                                    <p style="font-weight:bold; font-size:13px; margin-top:1rem; margin-bottom:0px;"><?php echo $title; ?></p>
+                                    <p style="font-size:13px;"><?php echo $comment; ?></p>
+                                    <br>
+                                    <hr>
+                            <?php
+                                }
+                            }
+                            else
+                            {
+                                echo"<br><h6> No Reviews Yet </h6>";
+                            }
+                            ?>       
+                        </div>
+                        <br>
+                        
+                        <div class="col-lg">
+                        </div>
+                        <br>
+                        
+                        <div class="col-lg">
+                        </div>
+                        <br>
+                    <?php
                     }
                     ?>
                 </div>
             </div>
+            
         </div>    
         
         <div id="footer">

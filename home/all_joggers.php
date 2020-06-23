@@ -2,6 +2,7 @@
     require("../includes/connect.php");
     include("../includes/check_if_added.php");
     require("../includes/connect2.php");
+    include("../includes/fetch_css.php");
 ?>    
 
 <html>
@@ -10,7 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $cssfilename; ?>" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +22,24 @@
         <?php
         include("../includes/header.php");
         ?>
+        <script>
+            window.onload = function(){
+                if(screen.width <= 1024)
+                {
+                    var screenwidth = screen.width;
+                    document.getElementById('imagesize').style.width = screenwidth;
+                    document.getElementById('bannersize').style.width = screenwidth;
+                }
+            };
+        </script>
         <div class="container-fluid" style="margin-top: 60px; padding: 0px;">
             <div class="row no-gutters">
                 <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="prod-women-image">
-                        <img class="prod-women-image-2" src="../images/jogger-banner.jpg" alt="BLOC36">
+                        <img id="imagesize" class="prod-women-image-2" src="../images/jogger-banner.jpg" alt="BLOC36">
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 prod-women-banner">
+                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 prod-women-banner" id="bannersize">
                     <div style='padding:16%'>
                         <h1 style='font-size: 1.5rem'> Women's Joggers </h1>
                         <h4 style='font-size: 0.9rem'> The world’s most comfortable joggers made from premium materials go perfectly with your daily escapades. </h4>
@@ -132,7 +143,7 @@
             <div class="row">
                 <div class="col">
                     <div class="text-center">
-                        <img src="../images/loader.gif" id="loader" width="250"  style="display:none;">
+                        <img src="../images/loader.gif" id="loader" width="100"  style="display:none;">
                     </div>
                     <div class="row text-center" id="result">
                         <?php
@@ -146,9 +157,10 @@
                                 <div class="col col-xs-6 col-lg-3" style="margin-top: 50px;">
                                     <div class="container product-size-form-container">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row['prod_color']; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px;width:170px;height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row['prod_color']; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p style="font-weight:bold;">Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -205,9 +217,11 @@
                                                             } 
                                                             else 
                                                             {
-                                                                if (check_if_added_to_cart($row["ProductID"]))
+                                                                if(check_if_added_to_cart($row["ProductID"]))
                                                                 { 
-                                                                    echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button></a>';
+                                                                ?>
+                                                                    <button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button>
+                                                                <?php
                                                                 } 
                                                                 else 
                                                                 {
@@ -272,9 +286,11 @@
                                                         } 
                                                         else 
                                                         {
-                                                            if (check_if_added_to_cart($row["ProductID"]))
+                                                            if(check_if_added_to_cart($row["ProductID"]))
                                                             { 
-                                                                echo '<a><button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button></a>';
+                                                            ?>
+                                                                <button type="button" class="button1" style="vertical-align:middle" disabled>In Cart</button>
+                                                            <?php
                                                             } 
                                                             else 
                                                             {
