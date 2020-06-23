@@ -1,6 +1,7 @@
 <?php
     require("../includes/connect.php");
     include("../includes/check_if_added.php");
+    include("../includes/fetch_css.php");
 ?>   
 <?php 
     error_reporting(E_ALL);
@@ -13,7 +14,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <link href="../css/style.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $cssfilename; ?>" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +24,25 @@
         <?php
             include("../includes/header.php");
         ?>
+        
+        <script>
+            window.onload = function(){
+                if(screen.width <= 1024)
+                {
+                    var screenwidth = screen.width;
+                    document.getElementById('imagesize').style.width = screenwidth;
+                    document.getElementById('bannersize').style.width = screenwidth;
+                }
+            };
+        </script>
         <div class="container-fluid" style="margin-top: 60px; padding: 0px;">
             <div class="row no-gutters">
                 <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="prod-women-image">
-                        <img class="prod-women-image-2" src="../images/products-women-banner.jpg" alt="BLOC36">
+                        <img id="imagesize" class="prod-women-image-2" src="../images/products-women-banner.jpg" alt="BLOC36">
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 prod-women-banner">
+                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 prod-women-banner" id="bannersize">
                     <div style='padding:16%'>
                         <h1 style='font-size: 1.5rem'> Women's Active-Wear </h1>
                         <h4 style='font-size: 0.9rem'> The world’s most comfortable active-wear made from premium materials go perfectly with your daily escapades. </h4>
@@ -56,11 +68,12 @@
                             if($row["prod_subcategory"] == "T-Shirt" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -227,11 +240,12 @@
                             if($row["prod_subcategory"] == "Leggings" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -398,11 +412,12 @@
                             if($row["prod_subcategory"] == "Sport-Bra" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -569,11 +584,12 @@
                             if($row["prod_subcategory"] == "Shorts" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -740,11 +756,12 @@
                             if($row["prod_subcategory"] == "Joggers" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -911,11 +928,12 @@
                             if($row["prod_subcategory"] == "Tank-Top" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -1082,11 +1100,12 @@
                             if($row["prod_subcategory"] == "Jacket" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
@@ -1253,11 +1272,12 @@
                             if($row["prod_subcategory"] == "Sweatshirt" && $row["prod_featured"] == "yes")
                             { ?>
                                 <th class="th-lg">
-                                    <div class="container product-size-form-container">
+                                    <div class="container product-size-form-container" style="width:200px">
                                         <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>">
-                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" alt="T-Shirt 1" style="width:200px !important;height:auto;">
+                                        <img class="img-fluid img-thumbnail women-prod-image" src="../includes/image_view_1.php?id=<?php echo $row["ProductID"]; ?>" style="margin-top:10px; width:200px !important; height:auto;">
                                         </a>
                                         <div class="caption">
+                                            <br>
                                             <a href="../home/product.php?styleCode=<?php echo $row["styleCode"]; ?>&color=<?php echo $row["prod_color"]; ?>" style="color:#212a2f; text-decoration: none;">
                                             <h3 class="product-name"><?php echo $row["prod_name"]; ?></h3>
                                             <p>Rs. <?php echo $row["prod_price"]; ?></p>  
