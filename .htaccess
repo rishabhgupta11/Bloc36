@@ -1,0 +1,3 @@
+DirectoryIndex home/index.php
+
+php_value curl.cainfo="/cacert.pem"
