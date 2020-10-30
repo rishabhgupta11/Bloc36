@@ -1,2 +1,3 @@
 # Bloc36
-An e-commerce website developed using mainly PHP.
+<br>
+An e-commerce website developed using mainly HTML, CSS, Bootstrap, Javascript and PHP with a database in MySQL.
